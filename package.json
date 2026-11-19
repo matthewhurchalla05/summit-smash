@@ -1,0 +1,17 @@
+{
+  "name": "summit-smash",
+  "version": "1.0.0",
+  "description": "Multiplayer physics party game: world leaders (and a horse) knock each other off the map.",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js"
+  },
+  "license": "UNLICENSED",
+  "dependencies": {
+    "ws": "^8.18.0"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "private": true
+}

@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Summit Smash</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<!-- HOME -->
+<section id="home" class="screen active">
+  <header class="hero">
+    <h1 class="logo">Summit <span>Smash</span></h1>
+    <p class="tag">Pick your leader. Knock everyone off the map. Last ball standing wins.</p>
+  </header>
+
+  <div class="home-grid">
+    <div class="card" id="pick-card">
+      <h2>1. Choose your leader</h2>
+      <div id="char-grid" class="char-grid"></div>
+      <h3>Hat <small id="hat-note"></small></h3>
+      <div id="hat-grid" class="hat-grid"></div>
+    </div>
+
+    <div class="side-col">
+      <div class="card" id="account-card"></div>
+
+      <div class="card" id="play-card">
+        <h2>2. Play</h2>
+        <div id="guest-name-row" class="row">
+          <input id="guest-name" maxlength="16" placeholder="Your name (guest)">
+        </div>
+        <button id="btn-create" class="btn big primary">Create a room</button>
+        <div class="row join-row">
+          <input id="join-code" maxlength="4" placeholder="CODE" autocomplete="off">
+          <button id="btn-join" class="btn">Join</button>
+        </div>
+        <p id="home-error" class="error"></p>
+      </div>
+
+      <div class="card">
+        <h2>Leaderboard</h2>
+        <ol id="leaderboard" class="leaderboard"><li class="muted">Loading…</li></ol>
+      </div>
+
+      <div class="card controls-help">
+        <h2>Controls</h2>
+        <p><kbd>←</kbd><kbd>→</kbd> or <kbd>A</kbd><kbd>D</kbd> roll &nbsp; <kbd>↑</kbd><kbd>W</kbd> float &nbsp; <kbd>↓</kbd><kbd>S</kbd> dive</p>
+        <p><kbd>X</kbd> / <kbd>Space</kbd> / <kbd>Shift</kbd> go <b>heavy</b> to smash people, but you steer slower.</p>
+        <p class="muted">Green = bouncy · Blue = ice · Red = lava, don't touch!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GAME -->
+<section id="game" class="screen">
+  <div class="topbar">
+    <button id="btn-leave" class="btn small">← Leave</button>
+    <div class="room-info">Room <b id="room-code">----</b>
+      <button id="btn-copy" class="btn small">Copy invite link</button>
+    </div>
+    <div class="top-right">
+      <span id="my-xp-mini"></span>
+      <button id="btn-mute" class="btn small" title="Sound on/off">🔊</button>
+    </div>
+  </div>
+
+  <div class="game-wrap">
+    <div class="stage-col">
+      <div id="stage">
+        <canvas id="canvas"></canvas>
+        <div id="banner" class="banner hidden"></div>
+        <div id="toasts"></div>
+
+        <div id="lobby" class="lobby hidden">
+          <h2>Lobby</h2>
+          <div id="lobby-players" class="lobby-players"></div>
+          <div id="host-controls">
+            <div class="row">
+              <label>Map <select id="set-map"></select></label>
+              <label>First to <select id="set-score"><option>3</option><option selected>5</option><option>7</option><option>10</option></select></label>
+            </div>
+            <div class="row">
+              <button id="btn-addbot" class="btn">+ Add bot</button>
+              <button id="btn-rmbot" class="btn">− Remove bot</button>
+            </div>
+            <button id="btn-start" class="btn big primary">Start match</button>
+          </div>
+          <p id="wait-host" class="muted">Waiting for the host to start…</p>
+          <div class="invite-box"><span>Invite friends with code <b class="code-again"></b></span><button id="btn-copy2" class="btn small primary">Copy invite link</button></div>
+          <p id="lobby-error" class="error"></p>
+        </div>
+      </div>
+
+      <div id="touch" class="touch">
+        <div class="pad">
+          <button data-k="u" class="tb up">▲</button>
+          <button data-k="l" class="tb left">◀</button>
+          <button data-k="r" class="tb right">▶</button>
+          <button data-k="d" class="tb down">▼</button>
+        </div>
+        <button data-k="h" class="tb heavy">HEAVY</button>
+      </div>
+    </div>
+
+    <aside class="side">
+      <div class="card scores">
+        <div class="scores-head"><b id="round-label">Lobby</b><button id="btn-stop" class="btn small hidden">End match</button></div>
+        <div id="scoreboard"></div>
+      </div>
+      <div class="card chat">
+        <div id="chat-log" class="chat-log"></div>
+        <form id="chat-form"><input id="chat-input" maxlength="140" placeholder="Press Enter to chat"></form>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<script src="/characters.js"></script>
+<script src="/avatars.js"></script>
+<script src="/client.js"></script>
+</body>
+</html>
