@@ -2,6 +2,8 @@
 
 A multiplayer physics party game for the browser. Pick a world leader (or a horse), roll your ball around, and knock your friends off the map. Last ball standing wins the round, and first to 5 rounds wins the match.
 
+![Summit Smash screenshot](screenshot.png)
+
 ## Features
 - **11 characters:** cartoon caricatures of the leaders of the USA, UK, France, Germany, Israel, China, Russia, Japan, Poland and Czechia, plus **The Horse**.
 - **Play with friends:** create a room and send the invite link (or the 4-letter code). Up to 8 players per room.
